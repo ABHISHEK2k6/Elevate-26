@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for mobile speaker carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-single {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-continuous {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* New infinite sliding animations */
+@keyframes slide-right {
+  0% {
+    transform: translateX(100vw) translateY(-50%);
+  }
+  100% {
+    transform: translateX(-100%) translateY(-50%);
+  }
+}
+
+@keyframes slide-seamless {
+  0% {
+    transform: translateX(0%) translateY(-50%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-single {
+  animation: marquee-single 15s linear infinite;
+}
+
+.animate-marquee-continuous {
+  animation: marquee-continuous 30s linear infinite;
+}
+
+/* Single instance for infinite sliding */
+.animate-slide-right-1 {
+  animation: slide-right 25s linear infinite;
+}
+
+/* Seamless sliding animation */
+.animate-slide-seamless {
+  animation: slide-seamless 30s linear infinite;
+}
+
+/* Gap utility for the marquee */
+.gap-15 {
+  gap: 3.75rem; /* 60px */
+}
+
+/* Text stroke utility */
+.text-stroke-white {
+  -webkit-text-stroke: 2px white;
+}
+
+/* Partners carousel animation */
+@keyframes marquee-partners {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-partners {
+  animation: marquee-partners 15s linear infinite;
+}
+
+.partners-container {
+  display: flex;
+  width: max-content;
+}
+
+/* SOLD OUT Marquee Animations */
+@keyframes marquee-soldout {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-soldout-fast {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-soldout-mobile {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-soldout {
+  animation: marquee-soldout 15s linear infinite;
+}
+
+.animate-marquee-soldout-fast {
+  animation: marquee-soldout-fast 8s linear infinite;
+}
+
+.animate-marquee-soldout-mobile {
+  animation: marquee-soldout-mobile 10s linear infinite;
+}
+
+/* Small SOLD OUT marquee for above buttons */
+@keyframes marquee-soldout-small {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee-soldout-small {
+  animation: marquee-soldout-small 150s linear infinite;
+}
