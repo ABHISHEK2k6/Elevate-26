@@ -15,7 +15,7 @@ export default function Hero() {
       >
 
         {/* Federal Bank Logo and Presents */}
-        <motion.div
+        {/* <motion.div
           className="mb-1 flex flex-col items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -33,9 +33,9 @@ export default function Hero() {
           <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700/90 font-medium tracking-wider -mt-4 md:-mt-10">
             Presents
           </h2>
-        </motion.div>
+        </motion.div> */}
         <motion.h2
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800/90 leading-tight mb-1 sm:mb-2 tracking-wider"
+          className="mt-20 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800/90 leading-tight mb-1 sm:mb-2 tracking-wider"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -83,7 +83,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
         >
           <div className='flex flex-row justify-center items-center sm:items-end gap-4 sm:gap-12 md:gap-16 lg:gap-20'>
-            <motion.div
+            {/* <motion.div
               className='flex flex-col items-center group'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function Hero() {
                   className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-contain drop-shadow-lg"
                 />
               </motion.div>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               className='flex flex-col items-center group'
@@ -123,7 +123,7 @@ export default function Hero() {
                 transition: { duration: 0.2, ease: "easeOut" }
               }}
             >
-              <div className="text-xs sm:text-sm md:text-base text-gray-600/80 mb-2 sm:mb-3 md:mb-4 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
+              <div className="text-xs sm:text-sm md:text-base text-gray-600/80 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
                 In Association with
               </div>
               <motion.div

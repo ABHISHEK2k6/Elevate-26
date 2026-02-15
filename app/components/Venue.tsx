@@ -15,37 +15,37 @@ export default function Venue() {
           <div className="relative w-full lg:w-[500px] h-[280px] rounded-[40px] overflow-hidden">
             <Image
               src="/hall1.avif"
-              alt="Park Centre"
+              alt="Athulya Building"
               fill
               className="object-cover"
             />
           </div>
 
           {/* Travancore Hall Interior Image - Right */}
-          <div className="relative w-full lg:w-[500px] h-[280px] rounded-[40px] overflow-hidden">
+          {/* <div className="relative w-full lg:w-[500px] h-[280px] rounded-[40px] overflow-hidden">
             <Image
               src="/hall2.avif"
               alt="Travancore Hall"
               fill
               className="object-cover"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Venue Details - Centered */}
         <div className="text-center mb-8">
           <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-            Travancore Hall,
+            Athulya Building,
           </h3>
           <p className="text-xl md:text-2xl text-gray-700/90">
-            Park Centre, Technopark Phase 1, Thiruvananthapuram, Kerala
+            Infopark, Kochi, Kerala
           </p>
         </div>
 
         {/* View in Map Button - Centered */}
         <div className="flex justify-center">
           <a
-            href="https://www.google.com/maps/place/Travancore+Hall+Technopark/@8.5580811,76.8813221,15z/data=!4m6!3m5!1s0x3b05befafd7aef35:0xabaa6d044c2dbed0!8m2!3d8.5580811!4d76.8813221!16s%2Fg%2F11ddx966h1!5m1!1e1?entry=ttu&g_ep=EgoyMDI0MTAyMy4wIKXMDSoASAFQAw%3D%3D"
+            href="https://maps.app.goo.gl/bb578djMmwGUtUdo6"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 flex items-center gap-3 whitespace-nowrap"
