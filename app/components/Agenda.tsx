@@ -99,52 +99,70 @@ export default function Agenda() {
     },
     {
       activity: 'Inaugural Function',
-      speakers: '• Seeram Sambasiva Rao IAS: Special Secretary (E & ITD) / Chairman, Kerala State IT Mission\n•Dr.Jayasankar Prasad C, Director, CMD\n• Anoop Ambika, CEO, Kerala Start-up Mission\n• Sreekumar V, Secretary, GTech, Centre Head Tata Elxsi\n• Col. Sanjeev Nair (Retd.), CEO, Technopark\n• Deepu S Nath, MD, Faya\n• Raj Gopal R, Deputy Vice President & Regional Head, Federal Bank',
+      speakers: '• Sushant / AnilSujas,Times of India\n• 2nd Sponsor - Lead college\n• Nest - CEO\n• Rajesh Nair\n• Sunil Balakrishnan',
       topic: '',
       type: 'admin'
     },
-    {
-      activity: 'Keynote Address',
-      speakers: 'Nisha Gopinath\nVice President and Head of HR IBM, India and South Asia',
-      topic: 'Shaping the Future: Leading through the Human–AI Nexus',
-      type: 'keynote'
-    },
+    // {
+    //   activity: 'Keynote Address',
+    //   speakers: 'Nisha Gopinath\nVice President and Head of HR IBM, India and South Asia',
+    //   topic: 'Shaping the Future: Leading through the Human–AI Nexus',
+    //   type: 'keynote'
+    // },
     {
       activity: 'Power Talk',
-      speakers: 'Charles Godwin,\nHR Leader, Zoho Corporation',
-      topic: 'Learning Rewired: The Skill-Shelf-Life Crisis Management',
+      speakers: 'Sam R Thomas',
+      topic: 'What HR must unlearn to embrace AI',
       type: 'session'
     },
+    // {
+    //   activity: 'Special Address',
+    //   speakers: ' Dr.Thomas George K,\nDirector, LEAD College (Autonomous)',
+    //   topic: '',
+    //   type: 'session'
+    // },
+    // {
+    //   activity: 'Special Address',
+    //   speakers: 'Magical Rafi,\nFounder & Chief Mentor, Magic of Change',
+    //   topic: 'Perform with Purpose: The Heartbeat Behind High Achievement',
+    //   type: 'session'
+    // },
     {
-      activity: 'Special Address',
-      speakers: ' Dr.Thomas George K,\nDirector, LEAD College (Autonomous)',
+      activity: 'Power Talk',
+      speakers: 'Aravind Warrier',
       topic: '',
-      type: 'session'
-    },
-    {
-      activity: 'Special Address',
-      speakers: 'Magical Rafi,\nFounder & Chief Mentor, Magic of Change',
-      topic: 'Perform with Purpose: The Heartbeat Behind High Achievement',
-      type: 'session'
-    },
-    {
-      activity: 'Power Talk',
-      speakers: 'Saurabh Singh,\nConsulting and Capability at SHRM India',
-      topic: 'AI + HI: Creating a Future-Ready HR Function',
-      type: 'session'
-    },
-    {
-      activity: 'Power Talk',
-      speakers: 'Karthika Nair S\nAssociate Director',
-      topic: 'The Talent Reset: Repurposing People for the New Work Order',
       type: 'session'
     },
     {
       activity: 'Panel Discussion',
-      speakers: '•Aditi Radhakrishnan, Consultant & Coach - Mitara Consulting Services\n• Jayan Nair, Chief People Officer - IBS Software\n• Manoj Elanjickal, Director - People & Culture, H&R Block India\n• Varun Palat, Deputy Vice President - HR, Federal Bank\n•Karthika Nair S, Associate Director',
-      topic: 'Future of Work - Bridging the Human-AI Continuum',
+      speakers: '• Sujith Unni\n• Jilu Joseph \n• Devika Chandrasekharan\n• Sunil Balakrishnan',
+      topic: 'Balancing innovation, cost, and culture',
       type: 'panel'
-    }
+    },
+    {
+      activity: 'Mentalist',
+      speakers: '• Abhijith',
+      topic: '“Perception vs Reality in Workplace Communication” Tie performance to: Bias in decision making Trust & influence Reading people beyond resumes',
+      type: 'session'
+    },
+    {
+      activity: 'Power Talk',
+      speakers: 'Binod Krishna',
+      topic: 'Next-Gen HR: Where Technology Meets Empathy',
+      type: 'session'
+    },
+    {
+      activity: 'Power Talk',
+      speakers: 'Shameel',
+      topic: 'Legal Readiness of HR: from Compliance to confidence',
+      type: 'session'
+    },
+    {
+      activity: 'Panel Discussion',
+      speakers: '• Jithin Chakkalakkal\n• Ajish MJ\n• Sreeni S Warrier\n• Jeswin Jose\n • Rasha kutty',
+      topic: 'Moving from transactional to transformational HR',
+      type: 'panel'
+    },
   ];
 
   return (
@@ -153,7 +171,7 @@ export default function Agenda() {
 
         <div className="text-center mb-12 sm:mb-16">
           <motion.h2
-            className="text-white capitalize font-medium text-center"
+            className="text-gray-800 capitalize font-large font-bold text-center"
             style={{
               fontFamily: '"Sora", "Sora Placeholder", sans-serif',
               fontSize: 'clamp(28px, 6vw, 40px)',
@@ -171,7 +189,7 @@ export default function Agenda() {
 
         <div className="mb-12 sm:mb-16">
           <motion.div
-            className="border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
+            className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -201,23 +219,23 @@ export default function Agenda() {
               }}
             />
             <div className="relative z-10">
-            <h3
-              className="text-white font-extraboldbold"
-              style={{
-                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                fontSize: 'clamp(16px, 4vw, 18px)',
-                fontWeight: 600,
-                letterSpacing: '-0.03em',
-                lineHeight: '1.4em'
-              }}
-            >
-              20th November 2025
-            </h3>
+              <h3
+                className="text-white font-extraboldbold"
+                style={{
+                  fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                  fontSize: 'clamp(16px, 4vw, 18px)',
+                  fontWeight: 600,
+                  letterSpacing: '-0.03em',
+                  lineHeight: '1.4em'
+                }}
+              >
+                21th February 2026
+              </h3>
             </div>
           </motion.div>
 
           <motion.div
-            className="border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
+            className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -247,18 +265,18 @@ export default function Agenda() {
               }}
             />
             <div className="relative z-10">
-            <h3
-              className="text-white font-extraboldbold"
-              style={{
-                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                fontSize: 'clamp(16px, 4vw, 18px)',
-                fontWeight: 600,
-                letterSpacing: '-0.03em',
-                lineHeight: '1.4em'
-              }}
-            >
-              Registration at 8:30 AM
-            </h3>
+              <h3
+                className="text-white font-extraboldbold"
+                style={{
+                  fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                  fontSize: 'clamp(16px, 4vw, 18px)',
+                  fontWeight: 600,
+                  letterSpacing: '-0.03em',
+                  lineHeight: '1.4em'
+                }}
+              >
+                Registration at 9:00 AM
+              </h3>
             </div>
           </motion.div>
 
@@ -268,16 +286,9 @@ export default function Agenda() {
                 <motion.div
                   className="rounded-lg p-4 sm:p-6 transition-all duration-300 hover:shadow-2xl relative overflow-hidden group"
                   style={{
-                    border: `1px solid ${item.type === 'keynote' ? 'rgba(239, 200, 38, 0.3)' :
-                      item.type === 'panel' ? 'rgba(34, 197, 94, 0.3)' :
-                        item.type === 'session' ? 'rgba(59, 130, 246, 0.3)' :
-                          item.type === 'admin' ? 'rgba(168, 85, 247, 0.3)' : 'rgba(255, 255, 255, 0.2)'
-                      }`,
-                    backgroundColor: `${item.type === 'keynote' ? 'rgba(239, 200, 38, 0.05)' :
-                      item.type === 'panel' ? 'rgba(34, 197, 94, 0.05)' :
-                        item.type === 'session' ? 'rgba(59, 130, 246, 0.05)' :
-                          item.type === 'admin' ? 'rgba(168, 85, 247, 0.05)' : 'transparent'
-                      }`
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(10px)'
                   }}
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -322,13 +333,13 @@ export default function Agenda() {
                       {/* Activity Column */}
                       <div className="flex flex-col justify-center">
                         <h3
-                          className="font-extrabold"
+                          className="font-extrabold text-white"
                           style={{
                             fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                             fontSize: 'clamp(16px, 4vw, 20px)',
                             fontWeight: 700,
                             letterSpacing: '-0.01em',
-                            color: 'white',
+                            color: '#ffffff !important',
                             filter: 'brightness(1.1) contrast(1.2)'
                           }}
                         >
@@ -339,14 +350,15 @@ export default function Agenda() {
                       {/* Speakers Column */}
                       <div className="md:col-span-1">
                         <div className="mb-2">
-                          <h4 className="text-white/80 text-xs uppercase font-semibold">Speakers/ Dignitaries</h4>
+                          <h4 className="text-white/80 text-xs uppercase font-semibold" style={{ color: 'rgba(255, 255, 255, 0.8) !important' }}>Speakers/ Dignitaries</h4>
                         </div>
                         <div
                           className="text-white font-bold"
                           style={{
                             fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                             fontSize: 'clamp(13px, 3.5vw, 15px)',
-                            lineHeight: '1.4em'
+                            lineHeight: '1.4em',
+                            color: '#ffffff !important'
                           }}
                         >
                           {item.speakers.split('\n').map((speaker, idx) => (
@@ -360,7 +372,7 @@ export default function Agenda() {
                         {item.topic && (
                           <>
                             <div className="mb-2">
-                              <h4 className="text-white/80 text-xs uppercase font-semibold">
+                              <h4 className="text-white/80 text-xs uppercase font-semibold" style={{ color: 'rgba(255, 255, 255, 0.8) !important' }}>
                                 Topic/ Theme
                               </h4>
                             </div>
@@ -369,7 +381,8 @@ export default function Agenda() {
                               style={{
                                 fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                                 fontSize: 'clamp(13px, 3.5vw, 15px)',
-                                lineHeight: '1.4em'
+                                lineHeight: '1.4em',
+                                color: '#ffffff !important'
                               }}
                             >
                               {item.topic}
@@ -385,7 +398,7 @@ export default function Agenda() {
                 {item.activity === 'Inaugural Function' && (
                   <>
                     <motion.div
-                      className="border border-white/20 rounded-lg p-3 sm:p-4 my-6 sm:my-8 text-center cursor-pointer group relative overflow-hidden"
+                      className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 my-6 sm:my-8 text-center cursor-pointer group relative overflow-hidden"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -415,63 +428,19 @@ export default function Agenda() {
                         }}
                       />
                       <div className="relative z-10">
-                      <h3
-                        className="text-white font-extraboldbold"
-                        style={{
-                          fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                          fontSize: 'clamp(16px, 4vw, 18px)',
-                          fontWeight: 600,
-                          letterSpacing: '-0.03em',
-                          lineHeight: '1.4em'
-                        }}
-                      >
-                        Felicitation to Great Place To Work Certified Organizations
-                      </h3>
-                      </div>
-                    </motion.div>
-                    <motion.div
-                      className="border border-white/20 rounded-lg p-3 sm:p-4 my-6 sm:my-8 text-center cursor-pointer group relative overflow-hidden"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
-                      whileHover={{
-                        scale: 1.02,
-                        transition: { duration: 0.2, ease: "easeOut" }
-                      }}
-                      whileTap={{
-                        scale: 0.98,
-                        transition: { duration: 0.1 }
-                      }}
-                    >
-                      {/* Animated border effect */}
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg pointer-events-none"
-                        style={{
-                          background: 'linear-gradient(45deg, #a855f7, #9333ea, #c084fc, #a855f7)',
-                          backgroundSize: '300% 300%',
-                          animation: 'gradientShift 3s ease infinite',
-                          mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                          maskComposite: 'xor',
-                          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                          WebkitMaskComposite: 'xor',
-                          padding: '2px',
-                          zIndex: 1
-                        }}
-                      />
-                      <div className="relative z-10">
-                      <h3
-                        className="text-white font-extraboldbold"
-                        style={{
-                          fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                          fontSize: 'clamp(16px, 4vw, 18px)',
-                          fontWeight: 600,
-                          letterSpacing: '-0.03em',
-                          lineHeight: '1.4em'
-                        }}
-                      >
-                        Setting the tone of Elevate 2025 by Deepu S Nath, MD, Faya
-                      </h3>
+                        <h3
+                          className="text-white font-extraboldbold"
+                          style={{
+                            fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                            fontSize: 'clamp(16px, 4vw, 18px)',
+                            fontWeight: 600,
+                            letterSpacing: '-0.03em',
+                            lineHeight: '1.4em',
+                            color: '#ffffff !important'
+                          }}
+                        >
+                          Felicitation to Great Place To Work Certified Organizations
+                        </h3>
                       </div>
                     </motion.div>
                   </>
@@ -479,7 +448,7 @@ export default function Agenda() {
                 {item.topic === 'Learning Rewired: The Skill-Shelf-Life Crisis Management' && (
                   <>
                     <motion.div
-                      className="border border-white/20 rounded-lg p-3 sm:p-4 my-6 sm:my-8 text-center cursor-pointer group relative overflow-hidden"
+                      className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 my-6 sm:my-8 text-center cursor-pointer group relative overflow-hidden"
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
@@ -509,17 +478,18 @@ export default function Agenda() {
                         }}
                       />
                       <div className="relative z-10">
-                      <h3
-                        className="text-white font-extraboldbold"
-                        style={{
-                          fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                          fontSize: 'clamp(16px, 4vw, 18px)',
-                          fontWeight: 600,
-                          lineHeight: '1.4em'
-                        }}
-                      >
-                        Lunch at 1:15 pm
-                      </h3>
+                        <h3
+                          className="text-white font-extraboldbold"
+                          style={{
+                            fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                            fontSize: 'clamp(16px, 4vw, 18px)',
+                            fontWeight: 600,
+                            lineHeight: '1.4em',
+                            color: '#ffffff !important'
+                          }}
+                        >
+                          Lunch at 1:15 pm
+                        </h3>
                       </div>
                     </motion.div>
                   </>
@@ -527,8 +497,8 @@ export default function Agenda() {
               </div>
             ))}
 
-                        <motion.div
-              className="border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
+            <motion.div
+              className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -558,22 +528,23 @@ export default function Agenda() {
                 }}
               />
               <div className="relative z-10">
-              <h3
-                className="text-white font-extraboldbold"
-                style={{
-                  fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                  fontSize: 'clamp(16px, 4vw, 18px)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.03em',
-                  lineHeight: '1.4em'
-                }}
-              >
-                Closing Remarks
-              </h3>
+                <h3
+                  className="text-white font-extraboldbold"
+                  style={{
+                    fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                    fontSize: 'clamp(16px, 4vw, 18px)',
+                    fontWeight: 600,
+                    letterSpacing: '-0.03em',
+                    lineHeight: '1.4em',
+                    color: '#ffffff !important'
+                  }}
+                >
+                  Closing Remarks
+                </h3>
               </div>
             </motion.div>
             <motion.div
-              className="border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
+              className="bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 text-center cursor-pointer group relative overflow-hidden"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -603,28 +574,31 @@ export default function Agenda() {
                 }}
               />
               <div className="relative z-10">
-              <h3
-                className="text-white font-extraboldbold"
-                style={{
-                  fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                  fontSize: 'clamp(16px, 4vw, 18px)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.03em',
-                  lineHeight: '1.4em'
-                }}
-              >
-                Music fiesta by MuBand
-              </h3>
+                <h3
+                  className="text-white font-extraboldbold"
+                  style={{
+                    fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                    fontSize: 'clamp(16px, 4vw, 18px)',
+                    fontWeight: 600,
+                    letterSpacing: '-0.03em',
+                    lineHeight: '1.4em',
+                    color: '#ffffff !important'
+                  }}
+                >
+                  Music fiesta by MuBand
+                </h3>
               </div>
             </motion.div>
           </div>
         </div>
 
+        <div className="text-center text-white/70 text-lg mt-4">*Last updated on 15th April 2025</div>
+
         {/* Ticker Section with SOLD OUT marquee */}
         <div className='overflow-hidden'>
           <div className="mb-16 mt-12 relative" style={{ opacity: 1, transform: 'perspective(1200px)' }}>
             {/* SOLD OUT Marquee floating over Reserve Your Spot section */}
-            <motion.div
+            {/* <motion.div
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20 "
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -642,7 +616,7 @@ export default function Agenda() {
                       {[...Array(100)].map((_, index) => (
                         <div key={index} className="flex items-center mx-8">
                           <span
-                            className="text-white font-bold uppercase tracking-wide"
+                            className="text-gray-900 font-bold uppercase tracking-wide"
                             style={{
                               fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                               fontSize: '18px',
@@ -658,53 +632,56 @@ export default function Agenda() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            <button className="w-full bg-gray-500 text-white opacity-60 cursor-not-allowed" disabled>
-              <div style={{ display: 'flex', width: '100%', height: '80px', maxWidth: '100%', maxHeight: '100%', placeItems: 'center', margin: '0px', padding: '0px', listStyleType: 'none', opacity: 1, overflow: 'hidden' }}>
-                <ul
-                  className="animate-marquee"
-                  style={{
-                    display: 'flex',
-                    width: '100%',
-                    height: '100%',
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    placeItems: 'center',
-                    margin: '0px',
-                    padding: '0px',
-                    listStyleType: 'none',
-                    gap: '40px',
-                    position: 'relative',
-                    flexDirection: 'row',
-                    willChange: 'transform'
-                  }}
-                >
-                  {[...Array(10)].map((_, index) => (
-                    <li key={index} style={{ flexShrink: 0 }}>
-                      <div className="flex items-center gap-4" style={{ flexShrink: 0 }}>
-                        <div style={{ display: 'contents' }}>
-                          <svg width="24" height="24" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'rgb(255, 204, 0)', width: '24px', height: '24px' }}>
-                            <path d="M18.819 13.329l-5.324 5.99a2 2 0 01-2.99 0l-5.324-5.99a2 2 0 010-2.658l5.324-5.99a2 2 0 012.99 0l5.324 5.99a2 2 0 010 2.658z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
-                          </svg>
+            <Link href="https://konfhub.com/hrevolveelevate26">
+              <button className="w-full bg-transparent text-white hover:scale-[1.02] transition-all duration-300">
+                <div style={{ display: 'flex', width: '100%', height: '80px', maxWidth: '100%', maxHeight: '100%', placeItems: 'center', margin: '0px', padding: '0px', listStyleType: 'none', opacity: 1, overflow: 'hidden' }}>
+                  <ul
+                    className="animate-marquee"
+                    style={{
+                      display: 'flex',
+                      width: '100%',
+                      height: '100%',
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      placeItems: 'center',
+                      margin: '0px',
+                      padding: '0px',
+                      listStyleType: 'none',
+                      gap: '40px',
+                      position: 'relative',
+                      flexDirection: 'row',
+                      willChange: 'transform'
+                    }}
+                  >
+                    {[...Array(10)].map((_, index) => (
+                      <li key={index} style={{ flexShrink: 0 }}>
+                        <div className="flex items-center gap-4" style={{ flexShrink: 0 }}>
+                          <div style={{ display: 'contents' }}>
+                            <svg width="24" height="24" strokeWidth="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'rgb(0, 188, 212)', width: '28px', height: '28px' }}>
+                              <path d="M18.819 13.329l-5.324 5.99a2 2 0 01-2.99 0l-5.324-5.99a2 2 0 010-2.658l5.324-5.99a2 2 0 012.99 0l5.324 5.99a2 2 0 010 2.658z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
+                            </svg>
+                          </div>
+                          <p
+                            className="text-white uppercase whitespace-nowrap font-bold"
+                            style={{
+                              fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                              fontSize: '22px',
+                              fontWeight: 700,
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.05em'
+                            }}
+                          >
+                            Reserve Your Spot
+                          </p>
                         </div>
-                        <p
-                          className="text-white uppercase whitespace-nowrap"
-                          style={{
-                            fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                            fontSize: '20px',
-                            fontWeight: 600,
-                            textTransform: 'uppercase'
-                          }}
-                        >
-                          Reserve Your Spot
-                        </p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -718,7 +695,7 @@ export default function Agenda() {
         >
           <div className="text-center mb-8">
             <h2
-              className="text-white uppercase font-medium"
+              className="text-gray-800 uppercase font-medium"
               style={{
                 fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                 fontSize: 'clamp(20px, 5vw, 28px)',

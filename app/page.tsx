@@ -11,15 +11,15 @@ import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-[#000000] via-[#1883ca] to-[#000000] relative z-0">
+    <div className="min-h-screen bg-gradient-to-tr from-[#00DFFF] via-[#00E676] to-[#00BCD4] relative z-0">
       {/* Grid overlay */}
       <div 
         className="absolute inset-0 pointer-events-none z-10"
         style={{
           backgroundImage: `
-            linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-            linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
-            linear-gradient(50deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)
+            linear-gradient(90deg, rgba(0, 188, 212, 0.1) 1px, transparent 1px),
+            linear-gradient(rgba(0, 188, 212, 0.1) 1px, transparent 1px),
+            linear-gradient(50deg, rgba(0, 230, 118, 0.3) 1px, transparent 1px)
           `,
           backgroundSize: '25px 25px'
         }}
@@ -35,7 +35,7 @@ export default function Home() {
 
         <Speakers />
 
-        <WhyAttend />
+        {/* <WhyAttend /> */}
 
         <Agenda />
 

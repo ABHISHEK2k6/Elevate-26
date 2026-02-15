@@ -3,13 +3,13 @@ export default function About() {
     <section id="about" className=" flex items-center justify-center px-4 py-10">
       <div className="max-w-5xl mx-auto">
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center my-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center my-12">
           About HR Evolve
         </h2>
 
         {/* Content */}
-        <div className="bg-white/5 backdrop-blur-sm border border-purple-500/20 rounded-3xl p-8 md:p-10">
-          <p className="text-lg md:text-xl text-purple-100 leading-relaxed text-justify">
+        <div className="bg-white/5 backdrop-blur-sm border border-cyan-400/30 rounded-3xl p-8 md:p-10">
+          <p className="text-lg md:text-xl text-gray-800 leading-relaxed text-justify">
             <a 
               href="https://hrevolve.org/" 
               target="_blank" 

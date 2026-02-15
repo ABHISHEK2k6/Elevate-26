@@ -30,12 +30,12 @@ export default function Hero() {
               className="w-20 h-20 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-42 lg:h-42 object-contain drop-shadow-xl"
             />
           </div>
-          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-medium tracking-wider -mt-4 md:-mt-10">
+          <h2 className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700/90 font-medium tracking-wider -mt-4 md:-mt-10">
             Presents
           </h2>
         </motion.div>
         <motion.h2
-          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white/80 leading-tight mb-1 sm:mb-2 tracking-wider"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800/90 leading-tight mb-1 sm:mb-2 tracking-wider"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -43,32 +43,39 @@ export default function Hero() {
           HR CONCLAVE
         </motion.h2>
         <motion.h1
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-2 sm:mb-0 leading-tight"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-2 sm:mb-0 leading-tight"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
         >
-          ELEVATE<span className="text-blue-500">26</span>
+          ELEVATE<span className="font-black" style={{
+            background: 'linear-gradient(135deg, #00DFFF 0%, #00E676 50%, #00BCD4 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            filter: 'brightness(1.2) contrast(1.1)',
+            fontWeight: 900
+          }}>26</span>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.h2
-          className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-1 sm:mb-2 leading-tight tracking-wide"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1 sm:mb-2 leading-tight tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
         >
-          SHAPING THE FUTURE
+          REIMAGINING FUTURE OF WORK
         </motion.h2>
 
-        <motion.h3
-          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white/90 mb-4 sm:mb-6 md:mb-8 leading-tight tracking-wide"
+        {/* <motion.h3
+          className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-gray-800/90 mb-4 sm:mb-6 md:mb-8 leading-tight tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
         >
           LEADING THROUGH THE HUMAN-AI NEXUS
-        </motion.h3>
+        </motion.h3> */}
         <motion.div
           className="mb-3 sm:mb-5 md:mb-7"
           initial={{ opacity: 0, y: 20 }}
@@ -86,7 +93,7 @@ export default function Hero() {
                 transition: { duration: 0.2, ease: "easeOut" }
               }}
             >
-              <div className="text-xs sm:text-sm md:text-base text-white/70 mb-2 sm:mb-3 md:mb-4 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
+              <div className="text-xs sm:text-sm md:text-base text-gray-600/80 mb-2 sm:mb-3 md:mb-4 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
                 Powered By
               </div>
               <motion.div
@@ -116,7 +123,7 @@ export default function Hero() {
                 transition: { duration: 0.2, ease: "easeOut" }
               }}
             >
-              <div className="text-xs sm:text-sm md:text-base text-white/70 mb-2 sm:mb-3 md:mb-4 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
+              <div className="text-xs sm:text-sm md:text-base text-gray-600/80 mb-2 sm:mb-3 md:mb-4 font-medium tracking-wide uppercase text-center h-8 sm:h-10 flex items-center justify-center">
                 In Association with
               </div>
               <motion.div
@@ -140,7 +147,7 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          className="text-sm sm:text-base md:text-lg lg:text-xl text-purple-200 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0 text-justify"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0 text-justify"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -161,19 +168,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
         >
-          <span className="text-lg sm:text-xl md:text-2xl text-white font-semibold">
+          <span className="text-lg sm:text-xl md:text-2xl text-gray-800 font-semibold">
             JOIN US ON
           </span>
         </motion.div>
 
         {/* Date */}
         <motion.p
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-blue-500 font-bold mb-6 sm:mb-8 px-2 sm:px-0"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-cyan-900 font-bold mb-6 sm:mb-8 px-2 sm:px-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
         >
-          20<sup className="text-lg sm:text-xl">th</sup> NOVEMBER 2025
+          21<sup className="text-lg sm:text-xl">th</sup> FEBRUARY 2026
         </motion.p>
 
         {/* HR Conclave text */}
@@ -183,40 +190,41 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
         >
-          <span className="text-base sm:text-lg md:text-xl text-white">
-            Stay tuned for the ultimate <span className="text-blue-500 font-semibold">HR Conclave!</span>
+          <span className="text-base sm:text-lg md:text-xl text-gray-800">
+            Stay tuned for the ultimate <span className="text-cyan-900 font-semibold">HR Conclave!</span>
           </span>
         </motion.div>
 
         {/* CTA Button with floating SOLD OUT marquee */}
         <div className="relative inline-block">
-          {/* Register Button - Disabled */}
-          <motion.button
-            className="group bg-gray-500 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 flex items-center gap-2 sm:gap-3 mx-auto cursor-not-allowed opacity-60"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.5,
-              delay: 1.2,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              opacity: { duration: 0.3, delay: 1.2 },
-              scale: { duration: 0.4, delay: 1.2, ease: "backOut" }
-            }}
-            disabled
-          >
-            Register Now
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Register Button - Enabled */}
+          <Link href="https://konfhub.com/hrevolveelevate26">
+            <motion.button
+              className="group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-lg sm:text-xl font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.5,
+                delay: 1.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                opacity: { duration: 0.3, delay: 1.2 },
+                scale: { duration: 0.4, delay: 1.2, ease: "backOut" }
+              }}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </motion.button>
+              Register Now
+              <svg
+                className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </motion.button>
+          </Link>
 
           {/* SOLD OUT Marquee floating over button */}
-          <motion.div
+          {/* <motion.div
             className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center pointer-events-none z-10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -250,7 +258,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </motion.div>
 

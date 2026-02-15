@@ -333,7 +333,7 @@ export default function WhyAttend() {
           <div className="flex items-center gap-10 pr-10">
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
             
@@ -345,7 +345,7 @@ export default function WhyAttend() {
 
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
 
@@ -357,7 +357,7 @@ export default function WhyAttend() {
 
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
 
@@ -372,7 +372,7 @@ export default function WhyAttend() {
           <div className="flex items-center gap-32">
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
             
@@ -384,7 +384,7 @@ export default function WhyAttend() {
 
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
 
@@ -396,7 +396,7 @@ export default function WhyAttend() {
 
             <div className="flex-shrink-0">
               <p className="text-6xl md:text-8xl font-semibold text-transparent text-stroke-white font-sora">
-                Shaping the Future
+                Reimagining Future of Work
               </p>
             </div>
 

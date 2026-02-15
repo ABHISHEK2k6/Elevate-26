@@ -43,7 +43,7 @@ export default function FAQs() {
       <div className="relative z-10 w-full max-w-6xl mx-auto">
         {/* Section Title */}
         <motion.h2 
-          className="text-5xl md:text-6xl font-bold text-white text-center mb-16"
+          className="text-5xl md:text-6xl font-bold text-gray-900 text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function FAQs() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-white/5 backdrop-blur-sm border border-purple-500/20 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/10"
+              className="bg-white/5 backdrop-blur-sm border border-cyan-400/30 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -111,7 +111,7 @@ export default function FAQs() {
                   >
                     <div className="px-6 pb-6">
                       <motion.div 
-                        className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-purple-500/10"
+                        className="bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/20"
                         initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ duration: 0.2, delay: 0.1 }}

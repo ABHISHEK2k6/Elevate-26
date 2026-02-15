@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   return (
     <motion.footer 
-      className="relative border-t border-purple-500/20 py-6 sm:py-8"
+      className="relative border-t border-cyan-400/30 py-6 sm:py-8"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -19,7 +19,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p 
-            className="text-purple-200"
+            className="text-white-200"
             style={{
               fontSize: 'clamp(12px, 3vw, 16px)',
               lineHeight: '1.5em'
@@ -30,7 +30,7 @@ export default function Footer() {
               href="https://hrevolve.org/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-purple-300 hover:text-purple-100 font-semibold transition-colors duration-300"
+              className="text-blue-400 hover:text-green-100 font-semibold transition-colors duration-300"
             >
               HR Evolve
             </a>

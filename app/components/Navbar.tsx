@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <motion.div
-      className="sticky top-0 left-0 right-0 z-50 flex flex-col items-center pt-4 pb-4 bg-gradient-to-b from-[#1a0b3d] to-transparent"
+      className="sticky top-0 left-0 right-0 z-50 flex flex-col items-center pt-4 pb-4 bg-gradient-to-b from-[#00BCD4]/50 to-transparent backdrop-blur-xl"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -39,13 +39,17 @@ export default function Navbar() {
       {/* Navigation */}
       <nav className="w-full max-w-6xl flex items-center justify-between px-4 md:px-8">
         <div>
-          <Link href="/" className="text-white text-xl sm:text-2xl font-bold">
-            <Image src="/logo1.png" alt="Logo" width={120} height={120} className="sm:w-[150px] sm:h-[30px]" />
+          <Link href="/" className="text-gray-800 text-xl sm:text-2xl font-bold">
+            <Image src="/logo.png" alt="Logo" width={120} height={120} className="sm:w-[150px] sm:h-[30px]" />
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex bg-[#1a0b3d]/80 backdrop-blur-md rounded-full px-8 py-4 shadow-xl border border-purple-500/20">
+        <div className="hidden lg:flex rounded-full px-8 py-4 shadow-2xl" style={{
+          background: 'rgba(255, 255, 255, 0.2)',
+          backdropFilter: 'blur(40px)',
+          WebkitBackdropFilter: 'blur(40px)'
+        }}>
           <ul className="flex items-center gap-8">
             {navItems.map((item) => (
               <li key={item.name}>
@@ -55,7 +59,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleClick(item.href);
                   }}
-                  className={`text-white font-medium text-base transition-all duration-300 hover:text-purple-300 ${activeSection === item.href ? 'text-purple-300' : ''
+                  className={`text-gray-700 font-medium text-base transition-all duration-300 hover:text-cyan-600 ${activeSection === item.href ? 'text-cyan-600' : ''
                     }`}
                 >
                   {item.name}
@@ -69,21 +73,23 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Desktop CTA with SOLD OUT marquee floating in front */}
           <div className="hidden lg:block relative">
-            {/* Buy Button - Disabled */}
-            <button className="group bg-gray-500 text-white px-4 py-2 rounded-full text-md font-bold shadow-2xl transition-all duration-300 flex items-center gap-3 cursor-not-allowed opacity-60" disabled>
-              Buy Ticket
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+            {/* Buy Button - Enabled */}
+            <Link href="https://konfhub.com/hrevolveelevate26">
+              <button className="group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-4 py-2 rounded-full text-md font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-3">
+                Buy Ticket
+                <svg
+                  className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </Link>
             
             {/* SOLD OUT Marquee floating over button */}
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
+            {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
               <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '250px', height: '25px', borderRadius: '0px' }}>
                 <div className="flex items-center h-full px-3">
                   <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
@@ -105,13 +111,18 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden text-white p-2 rounded-lg bg-[#1a0b3d]/80 backdrop-blur-md border border-purple-500/20"
+            className="lg:hidden text-gray-800 p-2 rounded-lg shadow-lg"
+            style={{
+              background: 'rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(40px)',
+              WebkitBackdropFilter: 'blur(40px)'
+            }}
             aria-label="Toggle mobile menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -134,7 +145,11 @@ export default function Navbar() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="bg-[#1a0b3d]/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-purple-500/20 mx-auto max-w-md">
+          <div className="rounded-2xl p-6 shadow-2xl mx-auto max-w-md" style={{
+            background: 'rgba(255, 255, 255, 0.2)',
+            backdropFilter: 'blur(40px)',
+            WebkitBackdropFilter: 'blur(40px)'
+          }}>
             <ul className="space-y-4">
               {navItems.map((item) => (
                 <li key={item.name}>
@@ -144,7 +159,7 @@ export default function Navbar() {
                       e.preventDefault();
                       handleClick(item.href);
                     }}
-                    className={`block text-white hover:text-purple-300 transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-purple-500/20 ${activeSection === item.href ? 'text-purple-300 bg-purple-500/20' : ''
+                    className={`block text-gray-700 hover:text-cyan-600 transition-colors duration-300 font-medium py-2 px-4 rounded-lg hover:bg-cyan-100/50 ${activeSection === item.href ? 'text-cyan-600 bg-cyan-100/50' : ''
                       }`}
                   >
                     {item.name}
@@ -154,23 +169,25 @@ export default function Navbar() {
             </ul>
 
             {/* Mobile CTA Button */}
-            <div className="mt-6 pt-4 border-t border-purple-500/20">
+            <div className="mt-6 pt-4 border-t border-cyan-400/30">
               <div className="relative inline-block w-full">
-                {/* Mobile Buy Button - Disabled */}
-                <button className="w-full bg-gray-500 text-white py-3 px-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 flex items-center justify-center gap-3 cursor-not-allowed opacity-60" disabled>
-                  Buy Ticket
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
+                {/* Mobile Buy Button - Enabled */}
+                <Link href="https://konfhub.com/hrevolveelevate26">
+                  <button className="w-full bg-gradient-to-r from-cyan-400 to-green-500 text-white py-3 px-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center gap-3">
+                    Buy Ticket
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
+                </Link>
                 
                 {/* SOLD OUT Marquee floating over mobile button */}
-                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-20" style={{ transform: 'rotate(6deg)' }}>
+                {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-20" style={{ transform: 'rotate(6deg)' }}>
                   <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '220px', height: '38px', borderRadius: '0px' }}>
                     <div className="flex items-center h-full px-3">
                       <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
@@ -192,7 +209,7 @@ export default function Navbar() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

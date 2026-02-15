@@ -8,7 +8,7 @@ const TicketPrice = () => {
   return (
     <section className="py-8 sm:py-16 px-2 sm:px-4 relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* SOLD OUT Marquee floating over entire section */}
-      <motion.div
+      {/* <motion.div
         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -42,13 +42,13 @@ const TicketPrice = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       <div className="container mx-auto flex flex-col items-center justify-center">
         {/* Title */}
         <div className="text-center mb-8 sm:mb-12">
           <motion.h2
-            className="text-white capitalize font-medium"
+            className="text-gray-800 capitalize font-medium"
             style={{
               fontFamily: '"Sora", "Sora Placeholder", sans-serif',
               fontSize: 'clamp(28px, 6vw, 40px)',
@@ -237,33 +237,34 @@ const TicketPrice = () => {
                 ))}
               </div>
 
-              {/* Buy Button - Disabled */}
+              {/* Buy Button - Enabled */}
               <div className="text-center">
-                <button
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-500 text-white font-semibold rounded-full border border-gray-500 transition-colors duration-300 flex items-center gap-2 mx-auto cursor-not-allowed opacity-60"
-                  style={{
-                    fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                    fontSize: 'clamp(14px, 3.5vw, 16px)',
-                    fontWeight: 600,
-                    letterSpacing: '-0.01em',
-                    lineHeight: '150%',
-                    borderRadius: '100px'
-                  }}
-                  disabled
-                >
-                  Buy Ticket
-                  <div
-                    className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center"
-                    style={{ borderRadius: '50px' }}
+                <Link href="https://konfhub.com/hrevolveelevate26">
+                  <button
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-400 to-green-500 text-white font-semibold rounded-full border border-transparent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+                    style={{
+                      fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                      fontSize: 'clamp(14px, 3.5vw, 16px)',
+                      fontWeight: 600,
+                      letterSpacing: '-0.01em',
+                      lineHeight: '150%',
+                      borderRadius: '100px'
+                    }}
                   >
-                    <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                </button>
+                    Buy Ticket
+                    <div
+                      className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center"
+                      style={{ borderRadius: '50px' }}
+                    >
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </button>
+                </Link>
 
                 <p
-                  className="text-white/44 mt-2 sm:mt-3"
+                  className="text-gray-600/70 mt-2 sm:mt-3"
                   style={{
                     fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                     fontSize: 'clamp(10px, 2.5vw, 12px)',
