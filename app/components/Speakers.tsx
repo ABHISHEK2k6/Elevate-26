@@ -35,7 +35,6 @@ function SpeakerImage({ speaker, className = '', priority = false }: SpeakerImag
         width: '100%',
         height: '100%',
         objectFit: 'cover',
-        objectPosition: 'center',
       }}
     />
   );
@@ -144,7 +143,7 @@ export default function Speakers() {
                   const CardContent = (
                     <motion.div
                       key={`mobile-${index}`}
-                      className="group relative overflow-hidden rounded-3xl bg-gradient-to-b from-cyan-600/20 to-green-800/30 border border-cyan-400/30 flex-shrink-0 w-72 h-90 snap-center cursor-pointer"
+                      className="group relative overflow-hidden rounded-3xl bg-gradient-to-b from-cyan-600/20 to-green-800/30 border border-cyan-400/30 flex-shrink-0 w-72 h-[400px] snap-center cursor-pointer"
                       initial={{
                         opacity: 0,
                         y: 30,
@@ -175,7 +174,7 @@ export default function Speakers() {
                     >
                       {/* Speaker Image Container */}
                       <motion.div
-                        className="h-70 relative bg-gradient-to-b from-cyan-500/10 to-transparent overflow-hidden"
+                        className="h-[304px] relative bg-gradient-to-b from-cyan-500/10 to-transparent overflow-hidden"
                         initial={{ scale: 1.1, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                         viewport={{ once: true }}
@@ -186,7 +185,7 @@ export default function Speakers() {
                         }}
                       >
                         {/* Speaker image */}
-                        <SpeakerImage speaker={speaker} className="object-cover object-center" />
+                        <SpeakerImage speaker={speaker} className="object-cover object-top" />
 
                         {/* Decorative background shape */}
                         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-cyan-500/5 to-green-600/10 pointer-events-none"></div>
@@ -262,7 +261,7 @@ export default function Speakers() {
                     <motion.div
                       className="aspect-[3/4] relative overflow-hidden"
                     >
-                      <SpeakerImage speaker={speaker} className="object-cover" />
+                      <SpeakerImage speaker={speaker} className="object-cover object-center" />
                     </motion.div>
 
                     {/* Info bar */}

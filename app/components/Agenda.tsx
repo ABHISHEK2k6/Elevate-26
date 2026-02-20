@@ -110,7 +110,7 @@ export default function Agenda() {
     },
     {
       activity: 'Inaugural Function',
-      speakers: '• Sushant\nCEO, Infoparks Kerala & Cyberpark Kozhikode\n• Sujas Ali\nFounder ,Aabasoft\n• Sunil Balakrishnan\nChief Values Officer(CVO) | Global Head,\nUST GLOBAL\n• Dr. Thomas George K\nChairman, LEAD College',
+      speakers: '• Sushant\nCEO, Infoparks Kerala & Cyberpark Kozhikode\n• Sujas Ali\nFounder ,Aabasoft,Jt Secy.GTech\n• Sunil Balakrishnan\nChief Values Officer(CVO) | Global Head,\nUST GLOBAL\n• Dr. Thomas George K\nChairman, LEAD College',
       type: 'admin'
     },
     // {
@@ -181,7 +181,7 @@ export default function Agenda() {
     },
     {
       activity: 'Panel Discussion',
-      speakers: '• Jithin Chakkalakkal\nHead of people and culture, Reflections Info Systems\n• Ajish MJ\nVice President People and Culture, NeST Digital\n• Sreeni S Warrier\nFounder & Chief Architect, Mind Architects\n• Jeswin Jose\nSenior Associate Director HR, Big4\n•Rasha kutty\nCo-Founder, Empathy University',
+      speakers: '• Jithin Chakkalakkal\nHead of People and Culture, Reflections Info Systems\n• Ajish MJ\nVice President People and Culture, NeST Digital\n• Sreeni S Warrier\nFounder & Chief Architect, Mind Architects\n• Jeswin Jose\nSenior Associate Director HR, Big4\n•Rasha kutty\nCo-Founder, Empathy University',
       topic: 'Moving from Transactional to Transformational HR',
       type: 'panel'
     },
@@ -611,7 +611,7 @@ export default function Agenda() {
           </div>
         </div>
 
-        <div className="text-center text-white/70 text-lg mt-4">*Last updated on 17th February 2026</div>
+        <div className="text-center text-white/70 text-lg mt-4">*Last updated on 20th February 2026</div>
 
         {/* Ticker Section with SOLD OUT marquee */}
         <div className='overflow-hidden'>
