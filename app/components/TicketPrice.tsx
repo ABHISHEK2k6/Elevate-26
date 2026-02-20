@@ -1,54 +1,67 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { fetchSoldOutStatus } from '@/lib/soldOutData';
 
 const TicketPrice = () => {
+  const [isSoldOut, setIsSoldOut] = useState(false);
+
+  useEffect(() => {
+    const getSoldOutStatus = async () => {
+      const status = await fetchSoldOutStatus();
+      setIsSoldOut(status.isSoldOut);
+    };
+    getSoldOutStatus();
+  }, []);
+
   return (
     <section className="py-8 sm:py-16 px-2 sm:px-4 relative overflow-hidden min-h-screen flex items-center justify-center">
       {/* SOLD OUT Marquee floating over entire section */}
-      {/* <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 0.4,
-          delay: 0.5,
-          ease: "easeOut"
-        }}
-        style={{ transform: 'translate(-50%, -50%) rotate(-15deg)', width: '1500px', height: '30px' }}
-      >
-        <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-15deg)' }}>
-          <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '1200px', height: '30px', borderRadius: '0px' }}>
-            <div className="flex items-center h-full px-4">
-              <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
-                {[...Array(100)].map((_, index) => (
-                  <div key={index} className="flex items-center mx-8">
-                    <span
-                      className="text-white font-bold uppercase tracking-wide"
-                      style={{
-                        fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                        fontSize: '18px',
-                        fontWeight: 700,
-                        lineHeight: '50px'
-                      }}
-                    >
-                      SOLD OUT
-                    </span>
-                  </div>
-                ))}
+      {isSoldOut && (
+        <motion.div
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.4,
+            delay: 0.5,
+            ease: "easeOut"
+          }}
+          style={{ transform: 'translate(-50%, -50%) rotate(-15deg)', width: '1500px', height: '30px' }}
+        >
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-15deg)' }}>
+            <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '1200px', height: '30px', borderRadius: '0px' }}>
+              <div className="flex items-center h-full px-4">
+                <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
+                  {[...Array(100)].map((_, index) => (
+                    <div key={index} className="flex items-center mx-8">
+                      <span
+                        className="text-white font-bold uppercase tracking-wide"
+                        style={{
+                          fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                          fontSize: '18px',
+                          fontWeight: 700,
+                          lineHeight: '50px'
+                        }}
+                      >
+                        SOLD OUT
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </motion.div> */}
+        </motion.div>
+      )}
 
       <div className="container mx-auto flex flex-col items-center justify-center">
         {/* Title */}
         <div className="text-center mb-8 sm:mb-12">
           <motion.h2
-            className="text-gray-800 capitalize font-medium"
+            className="text-white capitalize font-medium"
             style={{
               fontFamily: '"Sora", "Sora Placeholder", sans-serif',
               fontSize: 'clamp(28px, 6vw, 40px)',
@@ -237,11 +250,52 @@ const TicketPrice = () => {
                 ))}
               </div>
 
-              {/* Buy Button - Enabled */}
-              <div className="text-center">
-                <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+              {/* Buy Button - Active when not sold out */}
+              {!isSoldOut && (
+                <div className="text-center">
+                  <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+                    <button
+                      className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-400 to-green-500 text-white font-semibold rounded-full border border-transparent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+                      style={{
+                        fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                        fontSize: 'clamp(14px, 3.5vw, 16px)',
+                        fontWeight: 600,
+                        letterSpacing: '-0.01em',
+                        lineHeight: '150%',
+                        borderRadius: '100px'
+                      }}
+                    >
+                      Buy Ticket
+                      <div
+                        className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center"
+                        style={{ borderRadius: '50px' }}
+                      >
+                        <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    </button>
+                  </Link>
+
+                  <p
+                    className="text-gray-600/70 mt-2 sm:mt-3"
+                    style={{
+                      fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                      fontSize: 'clamp(10px, 2.5vw, 12px)',
+                      fontWeight: 300,
+                      lineHeight: '1.6em'
+                    }}
+                  >
+                    *No refunds after purchase.
+                  </p>
+                </div>
+              )}
+
+              {/* Buy Button - Disabled when sold out */}
+              {isSoldOut && (
+                <div className="text-center">
                   <button
-                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-cyan-400 to-green-500 text-white font-semibold rounded-full border border-transparent shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto"
+                    className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-500 text-white font-semibold rounded-full border border-gray-500 transition-colors duration-300 flex items-center gap-2 mx-auto cursor-not-allowed opacity-60"
                     style={{
                       fontFamily: '"Sora", "Sora Placeholder", sans-serif',
                       fontSize: 'clamp(14px, 3.5vw, 16px)',
@@ -250,31 +304,32 @@ const TicketPrice = () => {
                       lineHeight: '150%',
                       borderRadius: '100px'
                     }}
+                    disabled
                   >
                     Buy Ticket
                     <div
                       className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center"
                       style={{ borderRadius: '50px' }}
                     >
-                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-500" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </div>
                   </button>
-                </Link>
 
-                <p
-                  className="text-gray-600/70 mt-2 sm:mt-3"
-                  style={{
-                    fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                    fontSize: 'clamp(10px, 2.5vw, 12px)',
-                    fontWeight: 300,
-                    lineHeight: '1.6em'
-                  }}
-                >
-                  *No refunds after purchase.
-                </p>
-              </div>
+                  <p
+                    className="text-white/44 mt-2 sm:mt-3"
+                    style={{
+                      fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                      fontSize: 'clamp(10px, 2.5vw, 12px)',
+                      fontWeight: 300,
+                      lineHeight: '1.6em'
+                    }}
+                  >
+                    *No refunds after purchase.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

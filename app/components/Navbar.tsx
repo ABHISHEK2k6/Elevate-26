@@ -1,13 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { fetchSoldOutStatus } from '@/lib/soldOutData';
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSoldOut, setIsSoldOut] = useState(false);
+
+  useEffect(() => {
+    const getSoldOutStatus = async () => {
+      const status = await fetchSoldOutStatus();
+      setIsSoldOut(status.isSoldOut);
+    };
+    getSoldOutStatus();
+  }, []);
 
   const navItems = [
     // { name: 'Speakers', href: '#speakers' },
@@ -76,45 +86,64 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Desktop CTA with SOLD OUT marquee floating in front */}
           <div className="hidden lg:block relative">
-            {/* Buy Button - Enabled */}
-            <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
-              <button className="group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-4 py-2 rounded-full text-md font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-3">
-                Buy Ticket
-                <svg
-                  className="w-6 h-6 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </Link>
+            {/* Buy Button - Active when not sold out */}
+            {!isSoldOut && (
+              <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+                <button className="group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-4 py-2 rounded-full text-md font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-3">
+                  Buy Ticket
+                  <svg
+                    className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </Link>
+            )}
             
-            {/* SOLD OUT Marquee floating over button */}
-            {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
-              <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '250px', height: '25px', borderRadius: '0px' }}>
-                <div className="flex items-center h-full px-3">
-                  <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
-                    {[...Array(100)].map((_, index) => (
-                      <div key={index} className="flex items-center mx-6">
-                        <span
-                          className="text-white font-bold uppercase tracking-wide"
-                          style={{
-                            fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                            fontSize: '14px',
-                            fontWeight: 700,
-                            transform: 'skewX(-15deg)'
-                          }}
-                        >
-                          SOLD OUT
-                        </span>
+            {/* Buy Button - Disabled when sold out */}
+            {isSoldOut && (
+              <>
+                <button className="group bg-gray-500 text-white px-4 py-2 rounded-full text-md font-bold shadow-2xl transition-all duration-300 flex items-center gap-3 cursor-not-allowed opacity-60" disabled>
+                  Buy Ticket
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+                
+                {/* SOLD OUT Marquee floating over button */}
+                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
+                  <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '250px', height: '25px', borderRadius: '0px' }}>
+                    <div className="flex items-center h-full px-3">
+                      <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
+                        {[...Array(100)].map((_, index) => (
+                          <div key={index} className="flex items-center mx-6">
+                            <span
+                              className="text-white font-bold uppercase tracking-wide"
+                              style={{
+                                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                                fontSize: '14px',
+                                fontWeight: 700,
+                                transform: 'skewX(-15deg)'
+                              }}
+                            >
+                              SOLD OUT
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div> */}
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -174,45 +203,64 @@ export default function Navbar() {
             {/* Mobile CTA Button */}
             <div className="mt-6 pt-4 border-t border-cyan-400/30">
               <div className="relative inline-block w-full">
-                {/* Mobile Buy Button - Enabled */}
-                <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
-                  <button className="w-full bg-gradient-to-r from-cyan-400 to-green-500 text-white py-3 px-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center gap-3">
-                    Buy Ticket
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
-                </Link>
+                {/* Mobile Buy Button - Active when not sold out */}
+                {!isSoldOut && (
+                  <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+                    <button className="w-full bg-gradient-to-r from-cyan-400 to-green-500 text-white py-3 px-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center justify-center gap-3">
+                      Buy Ticket
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </button>
+                  </Link>
+                )}
                 
-                {/* SOLD OUT Marquee floating over mobile button */}
-                {/* <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-20" style={{ transform: 'rotate(6deg)' }}>
-                  <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '220px', height: '38px', borderRadius: '0px' }}>
-                    <div className="flex items-center h-full px-3">
-                      <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
-                        {[...Array(100)].map((_, index) => (
-                          <div key={index} className="flex items-center mx-6">
-                            <span
-                              className="text-white font-bold uppercase tracking-wide"
-                              style={{
-                                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                                fontSize: '15px',
-                                fontWeight: 700,
-                                transform: 'skewX(-15deg)'
-                              }}
-                            >
-                              SOLD OUT
-                            </span>
+                {/* Mobile Buy Button - Disabled when sold out */}
+                {isSoldOut && (
+                  <>
+                    <button className="w-full bg-gray-500 text-white py-3 px-4 rounded-full text-lg font-bold shadow-lg transition-all duration-300 flex items-center justify-center gap-3 cursor-not-allowed opacity-60" disabled>
+                      Buy Ticket
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </button>
+                    
+                    {/* SOLD OUT Marquee floating over mobile button */}
+                    <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-20" style={{ transform: 'rotate(6deg)' }}>
+                      <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '220px', height: '38px', borderRadius: '0px' }}>
+                        <div className="flex items-center h-full px-3">
+                          <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
+                            {[...Array(100)].map((_, index) => (
+                              <div key={index} className="flex items-center mx-6">
+                                <span
+                                  className="text-white font-bold uppercase tracking-wide"
+                                  style={{
+                                    fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                                    fontSize: '15px',
+                                    fontWeight: 700,
+                                    transform: 'skewX(-15deg)'
+                                  }}
+                                >
+                                  SOLD OUT
+                                </span>
+                              </div>
+                            ))}
                           </div>
-                        ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div> */}
+                  </>
+                )}
               </div>
             </div>
           </div>

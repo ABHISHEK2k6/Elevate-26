@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { fetchPartnersFromGoogleSheets, Partner, getPartnerImageUrls, getFallbackPartnerImage } from '../../lib/partnersData';
+import { fetchSoldOutStatus } from '../../lib/soldOutData';
 
 // Robust Partner Logo Component (same as events system)
 interface PartnerLogoProps {
@@ -60,6 +61,7 @@ function PartnerLogo({ partner }: PartnerLogoProps) {
 export default function Agenda() {
   const [partners, setPartners] = useState<Partner[]>([]);
   const [partnersLoading, setPartnersLoading] = useState(true);
+  const [isSoldOut, setIsSoldOut] = useState(false);
 
   // Fetch partners data on component mount
   useEffect(() => {
@@ -90,6 +92,16 @@ export default function Agenda() {
       loadPartners();
     }
   }, []);
+
+  // Fetch sold out status
+  useEffect(() => {
+    const getSoldOutStatus = async () => {
+      const status = await fetchSoldOutStatus();
+      setIsSoldOut(status.isSoldOut);
+    };
+    getSoldOutStatus();
+  }, []);
+
   const scheduleItems = [
     {
       activity: 'Welcome Address',
@@ -169,7 +181,7 @@ export default function Agenda() {
     },
     {
       activity: 'Panel Discussion',
-      speakers: '• Jithin Chakkalakkal\nHead of people and culture, Reflections Info Systems\n• Ajish MJ\nVice President People and Culture, NeST Digital\n• Sreeni S Warrier\nFounder & Chief Architect, Mind Architects\n• Jeswin Jose\nSenior Associate Director HR, Big4\n•Rasha kutty\nCo-Founder, EmpathyUniversity',
+      speakers: '• Jithin Chakkalakkal\nHead of people and culture, Reflections Info Systems\n• Ajish MJ\nVice President People and Culture, NeST Digital\n• Sreeni S Warrier\nFounder & Chief Architect, Mind Architects\n• Jeswin Jose\nSenior Associate Director HR, Big4\n•Rasha kutty\nCo-Founder, Empathy University',
       topic: 'Moving from Transactional to Transformational HR',
       type: 'panel'
     },
@@ -605,44 +617,99 @@ export default function Agenda() {
         <div className='overflow-hidden'>
           <div className="mb-16 mt-12 relative" style={{ opacity: 1, transform: 'perspective(1200px)' }}>
             {/* SOLD OUT Marquee floating over Reserve Your Spot section */}
-            {/* <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20 "
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.4,
-                delay: 0.5,
-                ease: "easeOut"
-              }}
-              style={{ transform: 'translate(-50%, -50%) rotate(-8deg)', width: '1500px', height: '30px' }}
-            >
-              <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
-                <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '1200px', height: '30px', borderRadius: '0px' }}>
-                  <div className="flex items-center h-full px-4">
-                    <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
-                      {[...Array(100)].map((_, index) => (
-                        <div key={index} className="flex items-center mx-8">
-                          <span
-                            className="text-gray-900 font-bold uppercase tracking-wide"
-                            style={{
-                              fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                              fontSize: '18px',
-                              fontWeight: 700,
-                              lineHeight: '50px'
-                            }}
-                          >
-                            SOLD OUT
-                          </span>
-                        </div>
-                      ))}
+            {isSoldOut && (
+              <motion.div
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none z-20 "
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.5,
+                  ease: "easeOut"
+                }}
+                style={{ transform: 'translate(-50%, -50%) rotate(-8deg)', width: '1500px', height: '30px' }}
+              >
+                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
+                  <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '1200px', height: '30px', borderRadius: '0px' }}>
+                    <div className="flex items-center h-full px-4">
+                      <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
+                        {[...Array(100)].map((_, index) => (
+                          <div key={index} className="flex items-center mx-8">
+                            <span
+                              className="text-white font-bold uppercase tracking-wide"
+                              style={{
+                                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                                fontSize: '18px',
+                                fontWeight: 700,
+                                lineHeight: '50px'
+                              }}
+                            >
+                              SOLD OUT
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div> */}
+              </motion.div>
+            )}
 
-            <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
-              <button className="w-full bg-transparent text-white hover:scale-[1.02] transition-all duration-300">
+            {/* Reserve Your Spot Button - Active when not sold out */}
+            {!isSoldOut && (
+              <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+                <button className="w-full bg-transparent text-white hover:scale-[1.02] transition-all duration-300">
+                  <div style={{ display: 'flex', width: '100%', height: '80px', maxWidth: '100%', maxHeight: '100%', placeItems: 'center', margin: '0px', padding: '0px', listStyleType: 'none', opacity: 1, overflow: 'hidden' }}>
+                    <ul
+                      className="animate-marquee"
+                      style={{
+                        display: 'flex',
+                        width: '100%',
+                        height: '100%',
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        placeItems: 'center',
+                        margin: '0px',
+                        padding: '0px',
+                        listStyleType: 'none',
+                        gap: '40px',
+                        position: 'relative',
+                        flexDirection: 'row',
+                        willChange: 'transform'
+                      }}
+                    >
+                      {[...Array(10)].map((_, index) => (
+                        <li key={index} style={{ flexShrink: 0 }}>
+                          <div className="flex items-center gap-4" style={{ flexShrink: 0 }}>
+                            <div style={{ display: 'contents' }}>
+                              <svg width="24" height="24" strokeWidth="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'rgb(0, 188, 212)', width: '28px', height: '28px' }}>
+                                <path d="M18.819 13.329l-5.324 5.99a2 2 0 01-2.99 0l-5.324-5.99a2 2 0 010-2.658l5.324-5.99a2 2 0 012.99 0l5.324 5.99a2 2 0 010 2.658z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
+                              </svg>
+                            </div>
+                            <p
+                              className="text-white uppercase whitespace-nowrap font-bold"
+                              style={{
+                                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                                fontSize: '22px',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em'
+                              }}
+                            >
+                              Reserve Your Spot
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </button>
+              </Link>
+            )}
+
+            {/* Reserve Your Spot Button - Disabled when sold out */}
+            {isSoldOut && (
+              <button className="w-full bg-gray-500 text-white opacity-60 cursor-not-allowed" disabled>
                 <div style={{ display: 'flex', width: '100%', height: '80px', maxWidth: '100%', maxHeight: '100%', placeItems: 'center', margin: '0px', padding: '0px', listStyleType: 'none', opacity: 1, overflow: 'hidden' }}>
                   <ul
                     className="animate-marquee"
@@ -666,18 +733,17 @@ export default function Agenda() {
                       <li key={index} style={{ flexShrink: 0 }}>
                         <div className="flex items-center gap-4" style={{ flexShrink: 0 }}>
                           <div style={{ display: 'contents' }}>
-                            <svg width="24" height="24" strokeWidth="2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'rgb(0, 188, 212)', width: '28px', height: '28px' }}>
+                            <svg width="24" height="24" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: 'rgb(255, 204, 0)', width: '24px', height: '24px' }}>
                               <path d="M18.819 13.329l-5.324 5.99a2 2 0 01-2.99 0l-5.324-5.99a2 2 0 010-2.658l5.324-5.99a2 2 0 012.99 0l5.324 5.99a2 2 0 010 2.658z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"></path>
                             </svg>
                           </div>
                           <p
-                            className="text-white uppercase whitespace-nowrap font-bold"
+                            className="text-white uppercase whitespace-nowrap"
                             style={{
                               fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                              fontSize: '22px',
-                              fontWeight: 700,
-                              textTransform: 'uppercase',
-                              letterSpacing: '0.05em'
+                              fontSize: '20px',
+                              fontWeight: 600,
+                              textTransform: 'uppercase'
                             }}
                           >
                             Reserve Your Spot
@@ -688,7 +754,7 @@ export default function Agenda() {
                   </ul>
                 </div>
               </button>
-            </Link>
+            )}
           </div>
         </div>
 

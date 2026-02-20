@@ -2,8 +2,20 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { fetchSoldOutStatus } from '@/lib/soldOutData';
 
 export default function Hero() {
+  const [isSoldOut, setIsSoldOut] = useState(false);
+
+  useEffect(() => {
+    const getSoldOutStatus = async () => {
+      const status = await fetchSoldOutStatus();
+      setIsSoldOut(status.isSoldOut);
+    };
+    getSoldOutStatus();
+  }, []);
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden px-3 sm:px-4 md:px-6 lg:px-8">
       {/* Main Content */}
@@ -197,68 +209,99 @@ export default function Hero() {
 
         {/* CTA Button with floating SOLD OUT marquee */}
         <div className="relative inline-block">
-          {/* Register Button - Enabled */}
-          <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
-            <motion.button
-              className="mb-8 group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-lg sm:text-xl font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.5,
-                delay: 1.2,
-                ease: [0.25, 0.46, 0.45, 0.94],
-                opacity: { duration: 0.3, delay: 1.2 },
-                scale: { duration: 0.4, delay: 1.2, ease: "backOut" }
-              }}
-            >
-              Register Now
-              <svg
-                className="w-6 h-6 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          {/* Register Button - Active when not sold out */}
+          {!isSoldOut && (
+            <Link href="https://makemypass.com/event/elevate26-hr-conclave-kochi-edition">
+              <motion.button
+                className="mb-8 group bg-gradient-to-r from-cyan-400 to-green-500 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-lg sm:text-xl font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 flex items-center gap-2 sm:gap-3 mx-auto"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 1.2,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  opacity: { duration: 0.3, delay: 1.2 },
+                  scale: { duration: 0.4, delay: 1.2, ease: "backOut" }
+                }}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </motion.button>
-          </Link>
+                Register Now
+                <svg
+                  className="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.button>
+            </Link>
+          )}
 
-          {/* SOLD OUT Marquee floating over button */}
-          {/* <motion.div
-            className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center pointer-events-none z-10"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.4,
-              delay: 1.3,
-              ease: "easeOut"
-            }}
-            style={{ transform: 'translate(-50%, 0) rotate(12deg) skewX(-20deg)', width: '600px', height: '60px' }}
-          >
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
-              <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '300px', height: '40px', borderRadius: '0px' }}>
-                <div className="flex items-center h-full px-4">
-                  <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
-                    {[...Array(100)].map((_, index) => (
-                      <div key={index} className="flex items-center mx-8">
-                        <span
-                          className="text-white font-bold uppercase tracking-wide"
-                          style={{
-                            fontFamily: '"Sora", "Sora Placeholder", sans-serif',
-                            fontSize: '16px',
-                            fontWeight: 700,
-                            lineHeight: '40px'
-                          }}
-                        >
-                          SOLD OUT
-                        </span>
+          {/* Register Button - Disabled when sold out */}
+          {isSoldOut && (
+            <>
+              <motion.button
+                className="mb-8 group bg-gray-500 text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-lg sm:text-xl font-bold shadow-2xl transition-all duration-300 flex items-center gap-2 sm:gap-3 mx-auto cursor-not-allowed opacity-60"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 1.2,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                  opacity: { duration: 0.3, delay: 1.2 },
+                  scale: { duration: 0.4, delay: 1.2, ease: "backOut" }
+                }}
+                disabled
+              >
+                Register Now
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </motion.button>
+
+              {/* SOLD OUT Marquee floating over button */}
+              <motion.div
+                className="absolute top-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center pointer-events-none z-10"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 1.3,
+                  ease: "easeOut"
+                }}
+                style={{ transform: 'translate(-50%, 0) rotate(12deg) skewX(-20deg)', width: '600px', height: '60px' }}
+              >
+                <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center pointer-events-none z-30" style={{ transform: 'rotate(-8deg)' }}>
+                  <div className="overflow-hidden bg-gradient-to-r from-red-500 to-red-600 shadow-xl" style={{ width: '300px', height: '40px', borderRadius: '0px' }}>
+                    <div className="flex items-center h-full px-4">
+                      <div className="animate-marquee-soldout-small flex items-center whitespace-nowrap">
+                        {[...Array(100)].map((_, index) => (
+                          <div key={index} className="flex items-center mx-8">
+                            <span
+                              className="text-white font-bold uppercase tracking-wide"
+                              style={{
+                                fontFamily: '"Sora", "Sora Placeholder", sans-serif',
+                                fontSize: '16px',
+                                fontWeight: 700,
+                                lineHeight: '40px'
+                              }}
+                            >
+                              SOLD OUT
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </motion.div> */}
+              </motion.div>
+            </>
+          )}
         </div>
       </motion.div>
 
